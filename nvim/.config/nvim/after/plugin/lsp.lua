@@ -5,4 +5,7 @@ lsp.on_attach(function(client, bufnr)
 	lsp.default_keymaps({buffer = bufnr})
 end)
 
-require("lspconfig").lua_ls.setup({})
+local config = require("lspconfig")
+config.lua_ls.setup({})
+config.clangd.setup({})
+config.tsserver.setup({})
