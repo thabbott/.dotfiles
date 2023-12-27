@@ -18,10 +18,7 @@ require("lazy").setup({
 		dependencies = { 'nvim-lua/plenary.nvim' }
 	},
     {'rebelot/kanagawa.nvim'},
-    {
-        'nvim-lualine/lualine.nvim',
-        dependencies = {'nvim-tree/nvim-web-devicons'}
-    },
+    {'famiu/feline.nvim'},
 	{
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate'
