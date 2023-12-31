@@ -1,0 +1,101 @@
+# start iTerm2
+alt - return : open -a /Applications/iTerm.app
+
+# (re)start skhd and yabai
+shift + lctrl + alt - r : \
+    yabai --restart-service; \
+    skhd --restart-service
+
+# moving between windows
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
+
+# moving windows
+lctrl + alt - h : yabai -m window --warp west
+lctrl + alt - j : yabai -m window --warp south
+lctrl + alt - k : yabai -m window --warp north
+lctrl + alt - l : yabai -m window --warp east
+
+# setting window insertion points
+shift + lctrl + alt - h : yabai -m window --insert west
+shift + lctrl + alt - j : yabai -m window --insert south
+shift + lctrl + alt - k : yabai -m window --insert north
+shift + lctrl + alt - l : yabai -m window --insert east
+
+# creating spaces
+alt - c : yabai -m space --create && \
+          index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
+          yabai -m space --focus ${index}
+
+lctrl + alt - c : yabai -m space --create && \
+          index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
+          yabai -m window --space "${index}" && \
+          yabai -m space --focus ${index}
+
+# moving between spaces
+alt - n : yabai -m space --focus next
+alt - p : yabai -m space --focus prev
+alt - 1 : yabai -m space --focus 1
+alt - 2 : yabai -m space --focus 2
+alt - 3 : yabai -m space --focus 3
+alt - 4 : yabai -m space --focus 4
+alt - 5 : yabai -m space --focus 5
+alt - 6 : yabai -m space --focus 6
+alt - 7 : yabai -m space --focus 7
+alt - 8 : yabai -m space --focus 8
+alt - 9 : yabai -m space --focus 9
+alt - 0 : yabai -m space --focus 0
+
+# moving windows between spaces
+lctrl + alt - m : yabai -m window --space last; yabai -m space --focus last
+lctrl + alt - p : yabai -m window --space prev; yabai -m space --focus prev
+lctrl + alt - n : yabai -m window --space next; yabai -m space --focus next
+lctrl + alt - 1 : yabai -m window --space 1; yabai -m space --focus 1
+lctrl + alt - 2 : yabai -m window --space 2; yabai -m space --focus 2
+lctrl + alt - 3 : yabai -m window --space 3; yabai -m space --focus 3
+lctrl + alt - 4 : yabai -m window --space 4; yabai -m space --focus 4
+lctrl + alt - 5 : yabai -m window --space 5; yabai -m space --focus 5
+lctrl + alt - 6 : yabai -m window --space 6; yabai -m space --focus 6
+lctrl + alt - 7 : yabai -m window --space 7; yabai -m space --focus 7
+lctrl + alt - 8 : yabai -m window --space 8; yabai -m space --focus 8
+lctrl + alt - 9 : yabai -m window --space 9; yabai -m space --focus 9
+lctrl + alt - 0 : yabai -m window --space 0; yabai -m space --focus 0
+
+# destroy space
+shift + alt - c : yabai -m space --destroy
+
+# resizing windows
+shift + alt - h : yabai -m window --resize left:-50:0; \
+             yabai -m window --resize right:-50:0
+shift + alt - j : yabai -m window --resize bottom:0:50; \
+             yabai -m window --resize top:0:50
+shift + alt - k : yabai -m window --resize top:0:-50; \
+             yabai -m window --resize bottom:0:-50
+shift + alt - l : yabai -m window --resize right:50:0; \
+                  yabai -m window --resize left:50:0
+
+# equalize window size
+alt - e : yabai -m space --balance
+
+# toggle vertical/horizontal split with parent
+alt - v : yabai -m window --toggle split
+
+# toggle gaps
+alt - g : yabai -m space --toggle padding; yabai -m space --toggle gap
+
+# flip and rotate
+alt - r         : yabai -m space --rotate 270
+shift + alt - r : yabai -m space --rotate 90
+lctrl + alt - x : yabai -m space --mirror y-axis
+lctrl + alt - y : yabai -m space --mirror x-axis
+
+# toggle floating
+alt - f : \
+    yabai -m window --toggle float; \
+    yabai -m window --grid 8:8:1:1:6:6
+
+# toggle fullscreen
+alt - f         : yabai -m window --toggle zoom-fullscreen
+shift + alt - f : yabai -m window --toggle native-fullscreen
