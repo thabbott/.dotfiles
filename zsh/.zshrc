@@ -4,18 +4,32 @@ alias nvo='fd --type f --exclude .git | fzf-tmux -p --reverse | xargs nvim'
 alias tile='yabai --start-service'
 alias untile='yabai --stop-service'
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/thabbott/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/thabbott/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/thabbott/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/thabbott/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git
 
+preexec() {
+    cmd_start="$SECONDS"
+    cmd_started=true
+}
+
+precmd() {
+    local exit_code=$?
+    vcs_info
+    local cmd_end="$SECONDS"
+    elapsed=$((cmd_end-cmd_start))
+    if [[ $cmd_started == true ]]; then
+        print -P '%F{#555555}${elapsed}s%f'
+    fi
+    cmd_started=false
+}
+
+
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' stagedstr "%F{green}+%f"
+zstyle ':vcs_info:*' unstagedstr "%F{red}+%f"
+zstyle ':vcs_info:git*' formats "%s(%b)%c%u"
+zstyle ':vcs_info:git*' actionformats "%a %s(%b)%c%u"
+
+setopt prompt_subst
+export PROMPT='%(?.%F{green}%?.%F{red}%?)%f %F{blue}%1~%f → '
+export RPROMPT='${vcs_info_msg_0_}'

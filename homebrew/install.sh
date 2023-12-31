@@ -10,3 +10,6 @@ brew install yabai
 
 # LSPs
 brew install lua-language-server
+
+# better grep used by telescope
+brew install ripgrep
