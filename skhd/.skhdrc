@@ -1,7 +1,12 @@
-# start iTerm2
-alt - return : open -a /Applications/iTerm.app
+# launching
+alt - return : open -a iTerm
+cmd - return : open -a Firefox
 
-# (re)start skhd and yabai
+# start and stop yabai
+alt - y : yabai --start-service
+shift + alt - y: yabai --stop-service
+
+# reload skhd and yabai
 shift + lctrl + alt - r : \
     yabai --restart-service; \
     skhd --restart-service
@@ -92,7 +97,7 @@ lctrl + alt - x : yabai -m space --mirror y-axis
 lctrl + alt - y : yabai -m space --mirror x-axis
 
 # toggle floating
-alt - f : \
+lctrl + alt - f : \
     yabai -m window --toggle float; \
     yabai -m window --grid 8:8:1:1:6:6
 
