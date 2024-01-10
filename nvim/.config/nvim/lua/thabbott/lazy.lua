@@ -34,7 +34,6 @@ require("lazy").setup({
 	{'neovim/nvim-lspconfig'},
 	{'hrsh7th/cmp-nvim-lsp'},
 	{'hrsh7th/nvim-cmp'},
-	{'L3MON4D3/LuaSnip'},
     {
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
@@ -43,8 +42,4 @@ require("lazy").setup({
             vim.fn["mkdp#util#install"]()
         end,
     }
-}, {
-	install = {
-		colorscheme = { 'rose-pine' }
-	}
 })
