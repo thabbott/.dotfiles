@@ -1,3 +1,5 @@
+source ~/.zshconda
+
 export PATH="$HOME/nvim-macos/bin:$HOME/.local/scripts:$PATH"
 
 alias nvo='fd --type f --exclude .git | fzf-tmux -p --reverse | xargs nvim'
