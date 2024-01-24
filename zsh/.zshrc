@@ -1,6 +1,11 @@
 source ~/.zshconda
 
-export PATH="$HOME/nvim-macos/bin:$HOME/.scripts:$HOME/.local/bin:$PATH"
+export PATH="$HOME/nvim-linux64/bin:$HOME/.scripts:$HOME/.local/bin:$PATH"
+    
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
 alias nvo='fd --type f --exclude .git | fzf-tmux -p --reverse | xargs nvim'
 alias howmany='find . ! -name . -prune -print | grep -c /'

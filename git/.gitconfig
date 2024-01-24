@@ -3,5 +3,3 @@
     email = tristanhabbott@gmail.com
 [core]
     editor = nvim
-[credential]
-    helper = osxkeychain
