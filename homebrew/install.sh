@@ -4,10 +4,14 @@
 brew install stow
 brew install fd 
 brew install fzf 
+brew install tmux
+
+# Packaging
+brew install pipx
 
 # Tiling window manager and hotkey daemon
-brew install yabai 
-brew install skhd
+brew install koekeishiya/formulae/yabai 
+brew install koekeishiya/formulae/skhd
 
 # LSPs
 brew install lua-language-server
