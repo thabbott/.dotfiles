@@ -9,4 +9,17 @@ local config = require("lspconfig")
 config.lua_ls.setup({})
 config.clangd.setup({})
 config.tsserver.setup({})
-config.jedi_language_server.setup({})
+config.pyright.setup({
+    on_attach = on_attach,
+    settings = {
+        pyright = {
+            extraPaths  = "/home"
+        },
+        python = {
+            analysis = {
+                autoSearchPaths = true,
+                typeCheckingMode = "off"
+            }
+        }
+    }
+})

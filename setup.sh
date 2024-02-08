@@ -42,7 +42,7 @@ if [[ ! -f ~/.local/bin/lua-language-server ]]; then
    rm lua-language-server-3.7.4-linux-x64.tar.gz
    popd
 fi
-pipx install jedi-language-server
+pipx install pyright
 
 # Install dotfiles
 stow conda
