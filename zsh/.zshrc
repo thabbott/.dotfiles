@@ -1,5 +1,8 @@
 source ~/.zshconda
 
+export CLICOLOR=1
+export TERM=xterm-256color
+
 export PATH="$HOME/nvim-macos/bin:$HOME/.local/scripts:$PATH"
 
 alias nvo='fd --type f --exclude .git | fzf-tmux -p --reverse | xargs nvim'
