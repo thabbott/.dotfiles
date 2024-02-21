@@ -10,6 +10,7 @@ return {
 
    {
       "kylechui/nvim-surround",
+      cond = not vim.g.vscode,
       event = "VeryLazy",
       config = function()
          require("nvim-surround").setup({})
