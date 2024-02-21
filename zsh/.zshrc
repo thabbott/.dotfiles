@@ -4,6 +4,7 @@ export PATH="$HOME/nvim-macos/bin:$HOME/.scripts:$HOME/.local/bin:$PATH"
 
 alias nvo='fd --type f --exclude .git | fzf-tmux -p --reverse | xargs nvim'
 alias howmany='find . ! -name . -prune -print | grep -c /'
+alias copy='pbcopy'
 
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
