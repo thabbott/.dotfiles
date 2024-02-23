@@ -1,2 +1,8 @@
-# lazy.nvim
-lazy-lock.json
+# ignore everything inside .config by default
+# lots of programs write things here
+**/.config/*
+
+# unignore specific .config subdirs
+!nvim/.config/nvim/
+!nvim/.config/nvim/*
+!nvim/.config/nvim/**/*

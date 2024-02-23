@@ -1,2 +1,2 @@
-require("thabbott.core")
-require("thabbott.lazy")
+require("config.global")
+require("config.lazy")
