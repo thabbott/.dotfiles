@@ -45,6 +45,7 @@ fi
 pipx install pyright
 
 # Install dotfiles
+rm ~/.profile
 stow conda
 stow git
 stow nvim
