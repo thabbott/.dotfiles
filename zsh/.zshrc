@@ -1,12 +1,10 @@
 source ~/.zshconda
 
-export CLICOLOR=1
-export TERM=xterm-256color
-
-export PATH="$HOME/nvim-macos/bin:$HOME/.local/scripts:$PATH"
+export PATH="$HOME/nvim-macos/bin:$HOME/.scripts:$HOME/.local/bin:$PATH"
 
 alias nvo='fd --type f --exclude .git | fzf-tmux -p --reverse | xargs nvim'
 alias howmany='find . ! -name . -prune -print | grep -c /'
+alias copy='pbcopy'
 
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
@@ -14,11 +12,13 @@ zstyle ':vcs_info:*' enable git
 elapsed=0
 
 preexec() {
+    # start timing running command
     cmd_start="$SECONDS"
     cmd_running=true
 }
 
 precmd() {
+    # finish timing running command
     local exit_code=$?
     vcs_info
     if [[ $cmd_running == true ]]; then
@@ -29,8 +29,15 @@ precmd() {
         fi
     fi
     cmd_running=false
-}
 
+    # set conda environment string
+    if [[ -n $CONDA_DEFAULT_ENV ]]; then
+        newline=$'\n'
+        conda_env="%F{#555555}conda:$CONDA_DEFAULT_ENV$newline"
+    else
+        conda_env=""
+    fi
+}
 
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr "%F{green}+%f"
@@ -39,5 +46,5 @@ zstyle ':vcs_info:git*' formats "%F{green}%b%f%c%u"
 zstyle ':vcs_info:git*' actionformats "%a %F{green}%f%c%u"
 
 setopt prompt_subst
-export PROMPT='%F{#555555}${elapsed}s %F{blue}%1~%f %(?.%F{green}→.%F{red}→)%f '
+export PROMPT='${conda_env}%F{#555555}${elapsed}s %F{blue}%1~%f %(?.%F{green}→.%F{red}→)%f '
 export RPROMPT='${vcs_info_msg_0_}'
