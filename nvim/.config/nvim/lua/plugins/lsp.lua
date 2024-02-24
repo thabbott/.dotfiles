@@ -68,8 +68,19 @@ return {
          })
 
          -- Python
+         -- Note: may need to set MYPYPATH for
+         -- mypy to detect editable installs
          config.pylsp.setup({
             capabilities = capabilities,
+            settings = {
+               pylsp = {
+                  plugins = {
+                     black = { enabled = true },
+                     mypy = { enabled = true },
+                     ruff = { enabled = true },
+                  }
+               }
+            }
          })
       end
    },
