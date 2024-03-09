@@ -1,22 +1,9 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-# Utilities
-brew install stow
-brew install yabai 
-brew install skhd
-brew install pipx
+case "$(uname -s)" in
+   Darwin*)  os="macos";;
+   Linux*)   os="linux";;
+esac
 
-# Resource monitor
-pipx install bpytop
-
-# LSPs
-brew install lua-language-server
-
-# Stow
-stow firefox
-stow git
-stow nvim
-stow skhd
-stow tmux
-stow yabai
-stow zsh
+echo "running setup for ${os}"
+./os/${os}/setup.sh
