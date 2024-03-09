@@ -6,11 +6,11 @@ brew install yabai
 brew install skhd
 brew install pipx
 
-# Resource monitor
 pipx install bpytop
+pipx install pipenv
 
 # LSPs
-brew install lua-language-server
+brew install ripgrep
 
 # Stow
 stow firefox
