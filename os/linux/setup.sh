@@ -16,6 +16,7 @@ if [[ ! -d ~/nvim-linux64 ]]; then
    pushd ~
    tar xvzf nvim-linux64.tar.gz
    rm nvim-linux64.tar.gz
+   mv nvim-linux64 nvim
    popd
 fi
 
