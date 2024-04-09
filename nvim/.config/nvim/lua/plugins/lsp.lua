@@ -121,7 +121,6 @@ return {
                ['<C-f>'] = cmp.mapping.scroll_docs(4),
                ['<Down>'] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }), {'i'}),
                ['<Up>'] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }), {'i'}),
-               ["<CR>"] = cmp.mapping.confirm(),
                ["<Tab>"] = cmp.mapping(function(fallback)
                   if cmp.visible() then
                      cmp.confirm({ select = true })

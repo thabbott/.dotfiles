@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+gcloud compute config-ssh
+if [ "$#" -gt 0 ]; then
+   sed -i '' "/HostName/s/.*/&\n    User $1/" ~/.ssh/config
+fi
