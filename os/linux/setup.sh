@@ -27,6 +27,10 @@ if [[ ! -d ~/miniconda3 ]]; then
    rm -rf ~/miniconda3/miniconda.sh
 fi
 
+if [[ -f ~/.profile ]]; then
+   rm ~/.profile
+fi
+
 stow -t $HOME -d os/linux git
 stow -t $HOME conda
 stow -t $HOME nvim
