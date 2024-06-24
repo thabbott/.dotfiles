@@ -1,0 +1,7 @@
+[user]
+    name = Tristan Abbott
+    email = tristanhabbott@gmail.com
+[core]
+    editor = nvim
+[credential]
+    helper = osxkeychain
