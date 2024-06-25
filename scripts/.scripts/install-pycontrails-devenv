@@ -17,20 +17,16 @@ fi
 # create conda environment
 conda env remove -n pycontrails-devenv
 conda clean -a
-conda create -n pycontrails-devenv python=3.12.3
+conda create -n pycontrails-devenv python=3.12
 
 # activate conda environment
 eval "$(conda shell.zsh hook)"
 conda activate pycontrails-devenv
 
-# install conda recipes
-conda install -c conda-forge metview
-conda install -c conda-forge proj
-
 # install pycontrails
 make dev-install
 
-# install pip wheels
+# install additional pip wheels
 pip cache purge
 pip install python-lsp-server
 pip install python-lsp-black
