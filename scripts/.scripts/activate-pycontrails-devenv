@@ -1,0 +1,11 @@
+#!/bin/zsh
+#
+# Activate a conda environment for pycontrails development.
+# Must be sourced rather than run to apply in current shell.
+# To create the environment, see install-pycontrails-devenv.
+
+# activate conda environment
+conda activate pycontrails-devenv
+
+# add pycontrail's location to mypy's path
+export MYPYPATH=$(pip list | grep pycontrails | awk '{print $3}'):$MYPYPATH
