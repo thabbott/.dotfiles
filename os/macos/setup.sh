@@ -1,5 +1,14 @@
 #!/bin/bash
 
+if [[ ! -d ~/nvim ]]; then
+   wget -P ~ https://github.com/neovim/neovim/releases/latest/download/nvim-macos-arm64.tar.gz
+   pushd ~
+   tar xvzf nvim-macos-arm64.tar.gz
+   rm nvim-macos-arm64.tar.gz
+   mv nvim-macos-arm64 nvim
+   popd
+fi
+
 brew install stow
 brew install yabai 
 brew install skhd
