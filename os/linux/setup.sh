@@ -20,7 +20,8 @@ if [[ ! -d ~/nvim-linux64 ]]; then
    popd
 fi
 
-if [[ ! -d ~/miniconda3 ]]; then
+which conda &> /dev/null
+if [[ ! $? -eq 0 ]]; then
    mkdir -p ~/miniconda3
    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
    bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3

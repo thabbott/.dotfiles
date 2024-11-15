@@ -1,4 +1,4 @@
-source ~/.zshconda
+eval "$(conda shell.zsh hook)"
 
 export PATH="$HOME/nvim/bin:$HOME/.scripts:$HOME/.local/bin:$PATH"
 
