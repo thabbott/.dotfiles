@@ -1,5 +1,14 @@
 #!/bin/bash
 
+brew install jq
+brew install node
+brew install pipx
+brew install ripgrep
+brew install skhd
+brew install stow
+brew install wget
+brew install yabai 
+
 if [[ ! -d ~/nvim ]]; then
    wget -P ~ https://github.com/neovim/neovim/releases/latest/download/nvim-macos-arm64.tar.gz
    pushd ~
@@ -8,14 +17,6 @@ if [[ ! -d ~/nvim ]]; then
    mv nvim-macos-arm64 nvim
    popd
 fi
-
-brew install stow
-brew install yabai 
-brew install skhd
-brew install pipx
-brew install ripgrep
-brew install jq
-brew install node
 
 pipx install bpytop
 pipx install pipenv

@@ -1,6 +1,11 @@
+export PATH="$HOME/nvim/bin:$HOME/.scripts:$HOME/.local/bin:$PATH"
+
+which conda &> /dev/null
+if [[ ! $? -eq 0 ]]; then
+   export PATH="$HOME/miniconda3/bin:$PATH"
+fi
 eval "$(conda shell.zsh hook)"
 
-export PATH="$HOME/nvim/bin:$HOME/.scripts:$HOME/.local/bin:$PATH"
 
 alias nvo='fd --type f --exclude .git | fzf-tmux -p --reverse | xargs nvim'
 alias howmany='find . ! -name . -prune -print | grep -c /'
