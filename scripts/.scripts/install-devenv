@@ -1,0 +1,31 @@
+#!/bin/zsh
+#
+# Creates a conda environment for local development.
+
+# echo lines as script runs
+setopt verbose
+
+# set environment name
+git_url=$(git config --get remote.origin.url)
+echo $git_url
+name=$(echo $git_url | rev | cut -d "/" -f 1 | rev)
+env="${name}-devenv"
+
+# create conda environment
+conda env remove -n $env
+conda clean -a -y
+conda create -y -n $env python=3.12
+
+# activate conda environment
+eval "$(conda shell.zsh hook)"
+conda activate $env
+
+# install environment
+pip cache purge
+make dev-install
+
+# install additional pip wheels
+pip install python-lsp-server
+pip install python-lsp-black
+pip install pylsp-mypy
+pip install python-lsp-ruff

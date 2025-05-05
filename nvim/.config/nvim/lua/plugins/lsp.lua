@@ -69,11 +69,6 @@ return {
             }
          })
 
-         -- Typescript
-         config.tsserver.setup({
-            capabilities = capabilities,
-         })
-
          -- Python
          -- Note: may need to set MYPYPATH for
          -- mypy to detect editable installs
