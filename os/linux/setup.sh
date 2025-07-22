@@ -11,12 +11,12 @@ sudo apt install pipx
 pipx install bpytop
 pipx install pipenv
 
-if [[ ! -d ~/nvim-linux64 ]]; then
-   wget -P ~ https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+if [[ ! -d ~/nvim-linux-x86_64 ]]; then
+   wget -P ~ https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
    pushd ~
-   tar xvzf nvim-linux64.tar.gz
-   rm nvim-linux64.tar.gz
-   mv nvim-linux64 nvim
+   tar xvzf nvim-linux-x86_64.tar.gz
+   rm nvim-linux-x86_64.tar.gz
+   mv nvim-linux-x86_64 nvim
    popd
 fi
 
